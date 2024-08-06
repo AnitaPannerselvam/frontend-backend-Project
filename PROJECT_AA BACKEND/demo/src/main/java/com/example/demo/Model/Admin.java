@@ -1,75 +1,51 @@
 package com.example.demo.Model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.CascadeType;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class Admin {
+
     @Id
-    private int id;
-    private String name;
-    private String emailid;
-    private String password;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long adminId;
 
-    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
-    private Set<User> users = new HashSet<>();
-
-    public Admin() {
-    }
-
-    public Admin(int id, String name, String emailid, String password) {
-        this.id = id;
-        this.name = name;
-        this.emailid = emailid;
-        this.password = password;
-    }
+    private String adminName;
+    private String adminEmail;
+    private String adminPassword;
 
     // Getters and Setters
-
-    public int getId() {
-        return id;
+    public Long getAdminId() {
+        return adminId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAdminId(Long adminId) {
+        this.adminId = adminId;
     }
 
-    public String getName() {
-        return name;
+    public String getAdminName() {
+        return adminName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAdminName(String adminName) {
+        this.adminName = adminName;
     }
 
-    public String getEmailid() {
-        return emailid;
+    public String getAdminEmail() {
+        return adminEmail;
     }
 
-    public void setEmailid(String emailid) {
-        this.emailid = emailid;
+    public void setAdminEmail(String adminEmail) {
+        this.adminEmail = adminEmail;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAdminPassword() {
+        return adminPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setAdminPassword(String adminPassword) {
+        this.adminPassword = adminPassword;
     }
 }

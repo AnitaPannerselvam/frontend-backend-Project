@@ -1,48 +1,49 @@
 package com.example.demo.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import com.example.demo.Model.Task;
 import com.example.demo.Service.TaskService;
-import java.util.List;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/tasks")
 public class TaskController {
+
     @Autowired
     private TaskService taskService;
 
-    @GetMapping
-    public List<Task> getAllTasks() {
-        return taskService.getAllTasks();
+    @PostMapping
+    public ResponseEntity<Task> create(@Valid @RequestBody Task task) {
+        Task savedTask = taskService.save(task);
+        return new ResponseEntity<>(savedTask, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Task> getTaskById(@PathVariable int id) {
-        Task task = taskService.getTaskById(id).orElseThrow(() -> new RuntimeException("Task not found"));
-        return ResponseEntity.ok(task);
-    }
-
-    @PostMapping
-    public Task createTask(@RequestBody Task task) {
-        return taskService.createTask(task);
+    public ResponseEntity<Task> getById(@PathVariable Long id) {
+        Task task = taskService.getById(id);
+        return task != null ? 
+            new ResponseEntity<>(task, HttpStatus.OK) :
+            new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Task> updateTask(@PathVariable int id, @RequestBody Task taskDetails) {
-        Task updatedTask = taskService.updateTask(id, taskDetails);
-        return ResponseEntity.ok(updatedTask);
+    public ResponseEntity<Task> update(@PathVariable Long id, @Valid @RequestBody Task task) {
+        try {
+            Task updatedTask = taskService.update(id, task);
+            return new ResponseEntity<>(updatedTask, HttpStatus.OK);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTask(@PathVariable int id) {
-        taskService.deleteTask(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        taskService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
-
-
-
-   
-

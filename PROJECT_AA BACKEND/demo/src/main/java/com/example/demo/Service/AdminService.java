@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -17,18 +18,28 @@ public class AdminService {
         return adminRepository.findAll();
     }
 
-    public Admin getAdminById(int id) {
-        return adminRepository.findById(id).orElse(null);
+    public Optional<Admin> getAdminById(Long adminId) {
+        return adminRepository.findById(adminId);
     }
 
-    public Admin saveAdmin(Admin admin) {
+    public Admin createAdmin(Admin admin) {
         return adminRepository.save(admin);
     }
 
-    public void deleteAdmin(int id) {
-        adminRepository.deleteById(id);
+    public Admin updateAdmin(Long adminId, Admin adminDetails) {
+        if (adminRepository.existsById(adminId)) {
+            adminDetails.setAdminId(adminId);
+            return adminRepository.save(adminDetails);
+        } else {
+            return null;
+        }
+    }
+
+    public void deleteAdmin(Long adminId) {
+        adminRepository.deleteById(adminId);
+    }
+
+    public Admin getAdminByEmail(String adminEmail) {
+        return adminRepository.findByAdminEmail(adminEmail);
     }
 }
-
-
-

@@ -1,10 +1,10 @@
 package com.example.demo.Repository;
 
+import com.example.demo.Model.Login;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.Model.Task;
-
 @Repository
-public interface TaskRepository extends JpaRepository<Task, Long> {
+public interface LoginRepository extends JpaRepository<Login, Long> {
+    Login findByEmail(String email);
 }
