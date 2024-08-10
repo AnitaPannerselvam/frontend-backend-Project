@@ -1,0 +1,38 @@
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: center; /* Centers the form elements */
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column; /* Stacks inputs vertically */
+    align-items: center; /* Centers input fields horizontally */
+    margin-bottom: 10px; /* Space below the input */
+}
+
+.pro-name,
+textarea,
+input[type="email"],
+input[type="color"],
+select {
+    width: 200px; /* Set desired width for inputs */
+    padding: 8px; 
+    font-size: 16px; 
+    box-sizing: border-box; /* Includes padding in width */
+}
+
+textarea {
+    height: 80px; /* Set a fixed height for the textarea */
+}
+
+button {
+    padding: 8px 12px; /* Adjust button padding */
+    font-size: 14px; /* Reduced font size */
+    cursor: pointer;
+}
+
+button[type="button"] {
+    margin-top: 10px;
+}

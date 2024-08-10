@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Container, Grid, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer'; 
+import Footer from './Footer'; 
 
 const Home = () => {
     const navigate = useNavigate(); 

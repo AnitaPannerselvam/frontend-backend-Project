@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    color: white;
+    background-color: black;
+    padding: 0 20px;
+}
+
+.task {
+    font-size: 34px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links-mob {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-links-mob li {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+}
+
+.navbar ul li {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.navbar ul li:not(.active):hover {
+    background-color: blue;
+}
+
+.home, .contact, .tasks, .about {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.signup-button {
+    background: none;
+    border: 1px solid blue;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.signup {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.mob-menu-icon {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.admin-icon-container {
+    position: relative;
+}
+
+.admin-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.admin-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: black;
+    list-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px; 
+}
+
+.admin-link {
+    text-decoration: none;
+    color: white;
+    padding: 12px 16px; 
+    display: block;
+    border-radius: 5px; 
+}
+
+.admin-link:hover {
+    background-color: blue;
+    transform: scale(1.05);
+}
+
+.user-panel-icon-container {
+    position: relative;
+}
+
+.user-panel-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: black;
+    list-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.user-panel-link {
+    text-decoration: none;
+    color: white;
+    padding: 12px 16px; 
+    display: block;
+    border-radius: 5px; 
+}
+
+.user-icon {
+    color: white; 
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.user-icon:hover {
+    color: blue; 
+}
+
+
+.user-panel-link:hover {
+    background-color: pink;
+    transform: scale(1.05); 
+}
+
+.user-panel-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 780px) {
+    .nav-links {
+        display: none;
+    }
+    .nav-links-mob {
+        display: flex;
+    }
+    .task {
+        position: absolute;
+        top: 15px;
+        left: 35px;
+    }
+    .mob-menu-icon {
+        display: block;
+    }
+}
