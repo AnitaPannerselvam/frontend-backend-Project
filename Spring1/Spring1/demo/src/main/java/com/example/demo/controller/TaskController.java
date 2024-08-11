@@ -1,4 +1,3 @@
-
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/tasks")
+@CrossOrigin(origins = "https://localhost:5173")
 public class TaskController {
 
     @Autowired

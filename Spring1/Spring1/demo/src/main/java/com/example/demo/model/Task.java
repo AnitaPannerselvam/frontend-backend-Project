@@ -1,7 +1,4 @@
-
 package com.example.demo.model;
-
-import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,13 +12,15 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String taskName;
+    private String task_name;
     private String priority;
-    private LocalDate assignedDate;
-    private LocalDate deadlineDate;
+    private String assignedDate;
+    private String deadline;
+    private boolean done;
     private boolean inProgress;
+    private String status;
 
-
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -30,12 +29,12 @@ public class Task {
         this.id = id;
     }
 
-    public String getTaskName() {
-        return taskName;
+    public String getTask_name() {
+        return task_name;
     }
 
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
+    public void setTask_name(String task_name) {
+        this.task_name = task_name;
     }
 
     public String getPriority() {
@@ -46,20 +45,28 @@ public class Task {
         this.priority = priority;
     }
 
-    public LocalDate getAssignedDate() {
+    public String getAssignedDate() {
         return assignedDate;
     }
 
-    public void setAssignedDate(LocalDate assignedDate) {
+    public void setAssignedDate(String assignedDate) {
         this.assignedDate = assignedDate;
     }
 
-    public LocalDate getDeadlineDate() {
-        return deadlineDate;
+    public String getDeadline() {
+        return deadline;
     }
 
-    public void setDeadlineDate(LocalDate deadlineDate) {
-        this.deadlineDate = deadlineDate;
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     public boolean isInProgress() {
@@ -68,5 +75,13 @@ public class Task {
 
     public void setInProgress(boolean inProgress) {
         this.inProgress = inProgress;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

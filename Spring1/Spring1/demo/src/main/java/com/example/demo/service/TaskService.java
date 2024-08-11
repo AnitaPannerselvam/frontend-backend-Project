@@ -30,10 +30,10 @@ public class TaskService {
 
     public Task updateTask(Long id, Task taskDetails) {
         Task task = taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
-        task.setTaskName(taskDetails.getTaskName());
+        task.setTask_name(taskDetails.getTask_name());
         task.setPriority(taskDetails.getPriority());
         task.setAssignedDate(taskDetails.getAssignedDate());
-        task.setDeadlineDate(taskDetails.getDeadlineDate());
+        task.setDeadline(taskDetails.getDeadline());
         task.setInProgress(taskDetails.isInProgress());
         return taskRepository.save(task);
     }
