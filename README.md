@@ -24,7 +24,7 @@ Open the Frontend Floder by the following Commands
 
 ![Image](https://github.com/user-attachments/assets/42f62fb0-7762-4689-a98c-a2f1245b3b98)
 
-![Image](https://github.com/user-attachments/assets/4e936780-e577-4d0f-a2d0-cd03ee256c90)
+
 
 ![Image](https://github.com/user-attachments/assets/fc8a629b-314b-44a8-ab5e-e6eaef17373e)
 
